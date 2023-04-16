@@ -1,0 +1,114 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "lab -6,7,9,10",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "-o",
+                "${fileDirname}\\..\\main.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        },
+        {
+            "type": "cppbuild",
+            "label": "Lab 6",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "${fileDirname}\\stack\\**.cpp",
+                "${fileDirname}\\list\\**.cpp",
+                "-o",
+                "${fileDirname}\\..\\main.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        },
+        {
+            "type": "cppbuild",
+            "label": "Lab 7",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "${fileDirname}\\stack\\**.cpp",
+                "${fileDirname}\\list\\**.cpp",
+                "${fileDirname}\\pair\\**.cpp",
+                "-o",
+                "${fileDirname}\\..\\main.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        },
+        {
+            "type": "cppbuild",
+            "label": "Lab 9",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "${fileDirname}\\list\\**.cpp",
+                "-o",
+                "${fileDirname}\\..\\main.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        },
+        {
+            "type": "cppbuild",
+            "label": "Lab 10",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "${fileDirname}\\pair\\**.cpp",
+                "${fileDirname}\\utils\\**.cpp",
+                "${fileDirname}\\options\\**.cpp",
+                "-o",
+                "${fileDirname}\\..\\main.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        }
+    ],
+    "version": "2.0.0"
+}
