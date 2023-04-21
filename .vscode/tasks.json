@@ -2,13 +2,13 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "lab -6,7,9,10",
+            "label": "lab 1-5,8",
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
                 "${fileDirname}\\**.cpp",
                 "-o",
-                "${fileDirname}\\..\\main.exe"
+                "${fileDirname}\\..\\main.exe",
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -108,7 +108,29 @@
                 "isDefault": true
             },
             "detail": "Задача создана отладчиком."
-        }
+        },
+        {
+            "type": "cppbuild",
+            "label": "Lab 11",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "${fileDirname}\\pair\\**.cpp",
+                "-o",
+                "${fileDirname}\\..\\main.exe",
+                "-static-libstdc++",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        },
     ],
     "version": "2.0.0"
 }
