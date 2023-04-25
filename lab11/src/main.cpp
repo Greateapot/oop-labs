@@ -455,10 +455,10 @@ void ex5()
 int main()
 {
   srand((int)time(0));
-  // ex1();
-  // ex2();
-  // ex3();
-  // ex4();
+  ex1();
+  ex2();
+  ex3();
+  ex4();
   ex5();
   return 0;
 }
