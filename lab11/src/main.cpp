@@ -39,6 +39,48 @@ void print(priority_queue<T> &ls)
   }
 }
 
+template <typename T>
+priority_queue<T> _Q_copy(priority_queue<T> &queueIn)
+{
+  priority_queue<T> temp = priority_queue<T>();
+  priority_queue<T> queueOut = priority_queue<T>();
+  while (!queueIn.empty())
+  {
+    temp.push(queueIn.top());
+    queueOut.push(queueIn.top());
+    queueIn.pop();
+  }
+  while (!temp.empty())
+  {
+    queueIn.push(temp.top());
+    temp.pop();
+  }
+  return queueOut;
+}
+
+template <typename T>
+List<T> Q2L(priority_queue<T> &queue)
+{
+  priority_queue<T> queueCopy = _Q_copy(queue);
+  List<T> L = List<T>();
+  while (!queueCopy.empty())
+  {
+    L.push_back(new Node<T>(queueCopy.top()));
+    queueCopy.pop();
+  }
+  return L;
+}
+
+template <typename T>
+priority_queue<T> L2Q(List<T> &L)
+{
+  priority_queue<T> queue = priority_queue<T>();
+  for (Iterator<T> it = L.first(); it != L.last(); it++)
+    queue.push((*it).get_key());
+
+  return queue;
+}
+
 void ex1()
 {
   list<double> ls;
@@ -332,15 +374,91 @@ void ex4()
   }
 }
 
-void ex5() { cout << "Мне stl list скопировать надо, чтоб это выполнить?" << endl; }
+void ex5()
+{
+  priority_queue<Pair> pq;
+  {
+    List<Pair> ls = Q2L(pq);
+    for (int i = 0; i < SIZE; i++)
+    {
+      const int v = rand() % 1000000;
+      ls.push_back(new Node<Pair>(Pair(v / 1000, v % 1000 * 0.001)));
+    }
+
+    ls.print();
+    pq = L2Q(ls);
+  }
+
+  // 1
+  {
+    List<Pair> ls = Q2L(pq);
+    Pair sum;
+    for (Iterator<Pair> it = ls.first(); it != ls.last(); it++)
+      sum += (*it).get_key();
+
+    ls.push_back(new Node<Pair>(Pair(sum.get_a() / ls.get_size(), sum.get_b() / (double)ls.get_size())));
+    ls.print();
+    pq = L2Q(ls);
+  }
+
+  // 2
+  {
+    List<Pair> ls = Q2L(pq);
+    Pair a, b;
+    cout << "a: ";
+    cin >> a;
+    cout << "b: ";
+    cin >> b;
+
+    for (Iterator<Pair> it = ls.first(); it != ls.last(); it++)
+    {
+      Pair e = (*it).get_key();
+      if (e < a || e > b)
+        ls.queue_remove(e);
+    }
+
+    ls.print();
+    pq = L2Q(ls);
+  }
+
+  // 3
+  {
+    List<Pair> ls = Q2L(pq);
+    bool first = 1;
+    Pair min = (*(ls.first())).get_key(), max = min;
+    for (Iterator<Pair> it = ls.first(); it != ls.last(); it++)
+    {
+      Pair e = (*it).get_key();
+
+      if (!first)
+      {
+        if (e < min)
+          min = e;
+        else if (e > max)
+          max = e;
+      }
+      else
+        first = 0;
+    }
+
+    const Pair sum = min + max;
+    cout << "Sum: " << sum << endl;
+
+    for (Iterator<Pair> it = ls.first(); it != ls.last(); it++)
+      (*it).set_key((*it).get_key() + sum);
+
+    ls.print();
+    pq = L2Q(ls);
+  }
+}
 
 int main()
 {
   srand((int)time(0));
-  ex1();
-  ex2();
-  ex3();
-  ex4();
+  // ex1();
+  // ex2();
+  // ex3();
+  // ex4();
   ex5();
   return 0;
 }

@@ -4,9 +4,12 @@
 *.png
 *.pdf
 *.xml
+*.drawio
+.$*
 
 *.old
 *.bkv
+*.bkp
 
 *.zip
 

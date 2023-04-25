@@ -111,7 +111,7 @@
         },
         {
             "type": "cppbuild",
-            "label": "Lab 11",
+            "label": "Lab 11,12",
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
